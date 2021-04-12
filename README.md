@@ -1,4 +1,4 @@
-# sukura-ui
+# sakura-ui
 
 A Component Library for Vue3.0 + ts
 
