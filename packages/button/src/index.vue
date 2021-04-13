@@ -22,12 +22,12 @@ export default defineComponent({
     },
     disabled: {
       type: Boolean,
-      default: () => false,
-      validator: isValidButtonSize
+      default: () => false
     },
     size: {
       type: String as PropType<ButtonSize>,
-      default: 'middle'
+      default: 'middle',
+      validator: isValidButtonSize
     },
     effect: {
       type: String as PropType<ButtonEffect>,
