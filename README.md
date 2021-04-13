@@ -12,7 +12,7 @@ A Component Library for Vue3.0 + ts
 
 - [ ] 引入 `lerna`、完善 lint
 - [ ] 独立的主题包 `@xxx/theme`
-- [ ] 统一尺寸，配色方案
+- [x] 统一尺寸，配色方案
 - [ ] 完善打包机制
 - [ ] 组件完善
 - [ ] 完善单元测试覆盖

@@ -3,6 +3,8 @@
     <sk-button>默认</sk-button>
     <sk-button type="primary">主要</sk-button>
     <sk-button type="info">提示</sk-button>
+    <sk-button type="success">成功</sk-button>
+    <sk-button type="warning">警告</sk-button>
     <sk-button type="danger">危险</sk-button>
   </div>
 </template>
