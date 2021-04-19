@@ -1,5 +1,5 @@
 {
-  "name": "sakura-ui",
+  "name": "sakura3",
   "version": "0.0.0",
   "scripts": {
     "test": "jest",
@@ -8,11 +8,30 @@
     "vite": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
+    "docs:build": "vitepress build docs",
     "docs:dev": "vitepress dev docs"
   },
+  "author": "tflin",
   "dependencies": {
     "vue": "^3.0.5"
   },
+  "main": "dist/sakura-ui.umd.js",
+  "files": [
+    "dist",
+    "README.md",
+    "package.json"
+  ],
+  "keywords": [
+    "sakura",
+    "sakuraui",
+    "sakura-ui",
+    "vue",
+    "vue3",
+    "vue component",
+    "vue3 component",
+    "vite",
+    "vitepress"
+  ],
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
