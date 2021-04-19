@@ -10,7 +10,7 @@ module.exports = {
     logo: '/assets/logo.png',
     displayAllHeaders: false,
     nav: [
-      { text: '指南', link: '/' },
+      { text: '指南', link: '/guide' },
       { text: '组件', link: '/component/button' }
     ],
     sidebar: {

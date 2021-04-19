@@ -6,6 +6,6 @@ export type ButtonType =
   | 'success'
   | 'danger'
 
-export type ButtonSize = 'middle'
+export type ButtonSize = 'large' | 'middle' | 'small'
 
 export type ButtonEffect = 'pulse' | 'default' | 'flash'

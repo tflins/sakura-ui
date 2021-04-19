@@ -12,7 +12,7 @@ export const isValidButtonType = (type: ButtonType) => {
 }
 
 export const isValidButtonSize = (size: ButtonSize) => {
-  return ['middle'].includes(size)
+  return ['middle', 'large', 'small'].includes(size)
 }
 
 export const isValidButtonEffect = (effect: ButtonEffect) => {

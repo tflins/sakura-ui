@@ -1,5 +1,5 @@
 <template>
-  <button :class="innerClass" @click="handleClick">
+  <button :class="innerClass" :disabled="disabled" @click="handleClick">
     <span v-if="$slots.default">
       <slot></slot>
     </span>
@@ -9,7 +9,11 @@
 <script lang="ts">
 import { computed, PropType, defineComponent } from 'vue'
 import { ButtonType, ButtonEffect, ButtonSize } from './type'
-import { isValidButtonType, isValidButtonSize, isValidButtonEffect } from './validators'
+import {
+  isValidButtonType,
+  isValidButtonSize,
+  isValidButtonEffect
+} from './validators'
 
 export default defineComponent({
   name: 'SkButton',
@@ -37,11 +41,21 @@ export default defineComponent({
   },
 
   setup(props, ctx) {
+    const { size, type, effect, disabled } = props
+
     const innerClass = computed(() => {
       const buttonClass = 'sk-button'
-      return `${buttonClass} ${props.size} ${props.type} ${buttonClass}--effect__${props.effect}`
+      return {
+        [buttonClass]: true,
+        [type]: true,
+        [`${buttonClass}--effect__${effect}`]: true && !disabled,
+        [`${buttonClass}--disabled`]: disabled,
+        [`${buttonClass}--${size}`]: true
+      }
     })
+
     const handleClick = (event: Event) => {
+      if (disabled) return
       ctx.emit('click', event)
     }
 
@@ -56,12 +70,11 @@ export default defineComponent({
 <style lang="scss" scoped>
 .sk-button {
   position: relative;
-  width: 80px;
-  height: 32px;
   outline: none;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  width: auto;
 
   font-size: $font-size-middle;
 
@@ -100,6 +113,26 @@ export default defineComponent({
     color: $white;
   }
 
+  &--disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  &--middle {
+    padding: 0 25px;
+    height: 32px;
+  }
+
+  &--large {
+    padding: 0 30px;
+    height: 36px;
+  }
+
+  &--small {
+    padding: 0 10px;
+    height: 28px;
+  }
+
   &.sk-button--effect__default {
     &::before {
       position: absolute;
@@ -115,6 +148,11 @@ export default defineComponent({
       opacity: 0;
       content: ' ';
     }
+
+    &:hover::before {
+      opacity: 0.05;
+    }
+
     &:active::before {
       opacity: 0.1;
     }
@@ -139,6 +177,10 @@ export default defineComponent({
       border: 1px solid#e6f7ff;
       transform: scale(1.25);
       opacity: 0;
+    }
+
+    &:active {
+      opacity: 0.86;
     }
   }
 
