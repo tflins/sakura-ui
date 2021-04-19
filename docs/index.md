@@ -1,15 +1,15 @@
 ---
 home: true
 heroText: 樱花盛开之际，封印解除之时
-heroImage: '/assets/brand4.png'
+heroImage: '/brand4.png'
 actionText: 起步
-actionLink: /component/button
+actionLink: /component/install
 features:
-  - title: 🛠️ 专研原理
-    details: 万丈高楼平地起，盘龙卧虎高山齐。
-  - title: 🔩 动手实现
-    details: 实践是检验真理的唯一标准。
-  - title: 💡 思考与记录
-    details: 认知自己，认知世界。
+  - title: 开源
+    details: 整个组件库的完整源码可在 Github 上获取。
+  - title: Sakura
+    details: 世界上没有偶然，只有必然。
+  - title: Typescript
+    details: 提供完整的 Ts 类型支持。
 footer: MIT Licensed | Copyright © 2021-present tflin
 ---

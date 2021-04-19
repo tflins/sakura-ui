@@ -2,19 +2,28 @@ module.exports = {
   lang: "zh-CN",
   title: 'Sakura UI',
   description: '优雅的 vue3 composition api 组件库',
+  base: '/sakura-ui/',
   themeConfig: {
     docsBranch: 'main',
     editLinks: false,
     editLinkText: '为此页提供修改建议',
     repo: 'tflins/front-end-notes',
-    logo: '/assets/logo.png',
+    logo: '/logo.png',
     displayAllHeaders: false,
     nav: [
       { text: '指南', link: '/guide' },
-      { text: '组件', link: '/component/button' }
+      { text: '组件', link: '/component/install' }
     ],
     sidebar: {
       '/component': [{
+        "text": "开发指南",
+        "children": [
+          {
+            "text": "安装",
+            "link": "/component/install"
+          }
+        ]
+      }, {
         "text": "组件",
         "children": [
           {
