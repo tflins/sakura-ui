@@ -7,7 +7,7 @@ module.exports = {
     docsBranch: 'main',
     editLinks: false,
     editLinkText: '为此页提供修改建议',
-    repo: 'tflins/front-end-notes',
+    repo: 'tflins/sakura-ui',
     logo: '/logo.png',
     displayAllHeaders: false,
     nav: [
