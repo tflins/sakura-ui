@@ -1,7 +1,8 @@
 ---
 home: true
 heroText: 樱花盛开之际，封印解除之时
-heroImage: '/brand4.png'
+isLocalHeroImag: true
+heroImage: https://tflins.oss-cn-beijing.aliyuncs.com/sakura-ui/sakura-ui-hero.png?versionId=CAEQGBiBgIDY4enJxxciIGU5ZjlkODQ1NzRkOTQ4OTJiOTI3MTc0OTg5ZWM2Yjdm
 actionText: 起步
 actionLink: /component/install
 features:
