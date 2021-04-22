@@ -1,6 +1,7 @@
 // .vitepress/theme/index.js
 import SakuraUiSite from './sakura-ui-site'
-import { Button, Avatar } from '../../../packages/main'
+import { IconList } from './sakura-ui-site/components/docs-compoents'
+import { Button, Avatar, Icon } from '../../../packages/main'
 
 import './index.scss'
 
@@ -9,6 +10,8 @@ export default {
   enhanceApp({ app, router, siteData }) {
     app.use(Button)
       .use(Avatar)
+      .use(Icon)
+      .use(IconList)
     // app is the Vue 3 app instance from `createApp()`. router is VitePress'
     // custom router. `siteData`` is a `ref`` of current site-level metadata.
   }

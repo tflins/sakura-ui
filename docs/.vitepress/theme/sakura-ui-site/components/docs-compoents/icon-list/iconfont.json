@@ -1,0 +1,114 @@
+{
+  "id": "2498281",
+  "name": "sakura-ui",
+  "font_family": "sk-icon",
+  "css_prefix_text": "sk-icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8338691",
+      "name": "收藏",
+      "font_class": "collect",
+      "unicode": "e6c8",
+      "unicode_decimal": 59080
+    },
+    {
+      "icon_id": "19148152",
+      "name": "删 除",
+      "font_class": "delete",
+      "unicode": "e6cd",
+      "unicode_decimal": 59085
+    },
+    {
+      "icon_id": "689241",
+      "name": "个人 用户 头像2",
+      "font_class": "avatar",
+      "unicode": "e7e5",
+      "unicode_decimal": 59365
+    },
+    {
+      "icon_id": "21151489",
+      "name": "箭头镂空-左",
+      "font_class": "arrow-left",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "21151551",
+      "name": "留言镂空",
+      "font_class": "leave-message",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "21151553",
+      "name": "箭头镂空-上",
+      "font_class": "arrow-top",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "21151557",
+      "name": "箭头镂空-右",
+      "font_class": "arrow-right",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "21151558",
+      "name": "更多（带框）镂空",
+      "font_class": "more",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "21151560",
+      "name": "等待镂空",
+      "font_class": "await",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "21151561",
+      "name": "取消镂空",
+      "font_class": "cancel",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "21151562",
+      "name": "箭头镂空-左",
+      "font_class": "arrow-down",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "21151563",
+      "name": "可见镂空",
+      "font_class": "view",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "21151564",
+      "name": "警告镂空",
+      "font_class": "warning",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "21151570",
+      "name": "确认镂空",
+      "font_class": "check",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "21151770",
+      "name": "短信镂空",
+      "font_class": "message",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    }
+  ]
+}
