@@ -2,7 +2,7 @@
   <header v-if="showHero" class="home-hero">
     <figure v-if="$frontmatter.heroImage" class="figure">
       <img
-        v-if="!$frontmatter.isLocalHeroImag"
+        v-if="!$frontmatter.isLocalHeroImage"
         class="image"
         :src="$withBase($frontmatter.heroImage)"
         :alt="$frontmatter.heroAlt"
