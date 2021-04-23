@@ -21,6 +21,12 @@ module.exports = {
           {
             "text": "安装",
             "link": "/component/install"
+          },
+          {
+            "text": "风格指南"
+          },
+          {
+            "text": "快速上手"
           }
         ]
       }, {

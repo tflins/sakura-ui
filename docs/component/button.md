@@ -16,12 +16,12 @@
 </div>
 
 ```vue
-  <sk-button>默认</sk-button>
-  <sk-button type="primary">主要</sk-button>
-  <sk-button type="info">提示</sk-button>
-  <sk-button type="success">成功</sk-button>
-  <sk-button type="warning">警告</sk-button>
-  <sk-button type="danger">危险</sk-button>
+<sk-button>默认</sk-button>
+<sk-button type="primary">主要</sk-button>
+<sk-button type="info">提示</sk-button>
+<sk-button type="success">成功</sk-button>
+<sk-button type="warning">警告</sk-button>
+<sk-button type="danger">危险</sk-button>
 ```
 
 ## 禁用状态
@@ -38,12 +38,12 @@
 </div>
 
 ```vue
-  <sk-button disabled>默认</sk-button>
-  <sk-button type="primary" disabled>主要</sk-button>
-  <sk-button type="info" disabled>提示</sk-button>
-  <sk-button type="success" disabled>成功</sk-button>
-  <sk-button type="warning" disabled>警告</sk-button>
-  <sk-button type="danger" disabled>危险</sk-button>
+<sk-button disabled>默认</sk-button>
+<sk-button type="primary" disabled>主要</sk-button>
+<sk-button type="info" disabled>提示</sk-button>
+<sk-button type="success" disabled>成功</sk-button>
+<sk-button type="warning" disabled>警告</sk-button>
+<sk-button type="danger" disabled>危险</sk-button>
 ```
 
 ## hover 特效
@@ -73,19 +73,19 @@
 :::
 
 ```vue
-  <sk-button effect="pulse">脉冲</sk-button>
-  <sk-button type="primary" effect="pulse">脉冲</sk-button>
-  <sk-button type="info" effect="pulse">脉冲</sk-button>
-  <sk-button type="success" effect="pulse">脉冲</sk-button>
-  <sk-button type="warning" effect="pulse">脉冲</sk-button>
-  <sk-button type="danger" effect="pulse">脉冲</sk-button>
+<sk-button effect="pulse">脉冲</sk-button>
+<sk-button type="primary" effect="pulse">脉冲</sk-button>
+<sk-button type="info" effect="pulse">脉冲</sk-button>
+<sk-button type="success" effect="pulse">脉冲</sk-button>
+<sk-button type="warning" effect="pulse">脉冲</sk-button>
+<sk-button type="danger" effect="pulse">脉冲</sk-button>
 
-  <sk-button effect="flash">闪烁</sk-button>
-  <sk-button type="primary" effect="flash">闪烁</sk-button>
-  <sk-button type="info" effect="flash">闪烁</sk-button>
-  <sk-button type="success" effect="flash">闪烁</sk-button>
-  <sk-button type="warning" effect="flash">闪烁</sk-button>
-  <sk-button type="danger" effect="flash">闪烁</sk-button>
+<sk-button effect="flash">闪烁</sk-button>
+<sk-button type="primary" effect="flash">闪烁</sk-button>
+<sk-button type="info" effect="flash">闪烁</sk-button>
+<sk-button type="success" effect="flash">闪烁</sk-button>
+<sk-button type="warning" effect="flash">闪烁</sk-button>
+<sk-button type="danger" effect="flash">闪烁</sk-button>
 ```
 
 ## 按钮尺寸
@@ -99,9 +99,9 @@ sakura-ui 提供了三种不同的尺寸
 </div>
 
 ```vue
-  <sk-button size="small">小尺寸</sk-button>
-  <sk-button size="middle">默认</sk-button>
-  <sk-button size="large">大尺寸</sk-button>
+<sk-button size="small">小尺寸</sk-button>
+<sk-button size="middle">默认</sk-button>
+<sk-button size="large">大尺寸</sk-button>
 ```
 
 ## 属性

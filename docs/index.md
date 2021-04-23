@@ -8,8 +8,8 @@ actionLink: /component/install
 features:
   - title: 开源
     details: 整个组件库的完整源码可在 Github 上获取。
-  - title: Sakura
-    details: 世界上没有偶然，只有必然。
+  - title: 易用
+    details: 即刻阅读指南即可很方便的构建应用。
   - title: Typescript
     details: 提供完整的 Ts 类型支持。
 footer: MIT Licensed | Copyright © 2021-present tflin
