@@ -18,6 +18,8 @@ import {
 export default defineComponent({
   name: 'SkButton',
 
+  emits: ['click'],
+
   props: {
     type: {
       type: String as PropType<ButtonType>,
