@@ -43,6 +43,10 @@ module.exports = {
           {
             "text": "Avatar 头像",
             "link": "/component/avatar"
+          },
+          {
+            "text": "Message 消息",
+            "link": "/component/message"
           }
         ]
       }]
