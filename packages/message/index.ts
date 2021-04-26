@@ -1,10 +1,11 @@
 import SkMessage from './src/index.vue'
 import { IMessageBaseOptions } from './src/type'
-import { h, App, Teleport, createApp } from 'vue'
-
+import { App, createApp, ComponentPublicInstance, h, Teleport, reactive } from 'vue'
 export interface IHandleMessageFn {
   (message: string, options?: IMessageBaseOptions): void
 }
+
+let num = 0
 
 export interface IMessage {
   messageQueue: any[]
@@ -12,70 +13,67 @@ export interface IMessage {
   success: IHandleMessageFn
 }
 
+export interface IMessageOptions {}
+
 export class Message implements IMessage {
+  // TODO: messageQueue type
   private _messageQueue: any[] = []
-  private verticalOffset: number = 20
+  private wrapper: ComponentPublicInstance<any>
 
-  constructor() {}
-
+  // TODO: proxy -> this.wrapper.append | this.wrapper.remove
   get messageQueue() {
     return this._messageQueue
   }
 
-  private createMessageApp(
-    options: Partial<IMessageBaseOptions>
-  ): { id: string; app: App } {
-    const _id = new Date().getTime() + ''
-    // TODO: offset 待处理
-    this.verticalOffset += 60
+  set messageQueue(queue) {
+    this._messageQueue = queue
+  }
 
-    const _options = Object.assign({}, options, {
-      unmount: this.close.bind(this),
-      id: _id,
-      offset: options.offset || this.verticalOffset
-    })
+  private createWrapper(): App {
+    if(this.wrapper) return this.wrapper
 
-    const app = createApp({
+    this.wrapper = createApp({
+      setup:() => {
+        const messageQueue = reactive([])
+        const append = (message: never) => {
+          messageQueue.push(message)
+        }
+        const remove = () => {
+          messageQueue.shift()
+        }
+        return {
+          messageQueue,
+          append,
+          remove
+        }
+      },
       render() {
         return h(Teleport, { to: 'body' }, [
-          h('div', { class: `sk-message-wrap-${_id}` }, [
-            h(SkMessage, _options)
+          h('div', { class: 'sk-message-wrapper' }, [
+            h(SkMessage, { messageQueue: this.messageQueue })
           ])
         ])
       }
+    }).mount(document.createElement('div'))
+    return this.wrapper
+  }
+
+  private remove() {}
+
+  private removeAll() {}
+
+  success(content: string, options?: Partial<IMessageOptions>) {
+    num += 1
+    this.createWrapper()
+    this.wrapper.append({
+      content: content + num,
+      id: num
     })
 
-    return { id: _id, app }
+    setTimeout(() => {
+      this.wrapper.remove()
+    }, 2000)
   }
-
-  private close(id: string) {
-    const idx = this._messageQueue.findIndex((item) => item.id === id)
-    this.messageQueue[idx].app.unmount()
-    this.messageQueue.splice(idx, 1)
-  }
-
-  private mountApp(
-    app: App,
-    container: HTMLElement = document.createElement('div')
-  ) {
-    app.mount(container)
-  }
-
-  success(message: string, options?: IMessageBaseOptions) {
-    const { app, id } = this.createMessageApp(
-      Object.assign({}, options, { message })
-    )
-    this._messageQueue.push({ app, id })
-    this.mountApp(app)
-
-    console.log(this.messageQueue)
-  }
-
-  error() {}
-
-  info() {}
-
-  warning() {}
 }
 
 export default new Message()
