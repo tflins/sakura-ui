@@ -7,17 +7,17 @@ sakura-ui 提供了一套常用的图标组件。
 你可以使用 `name` 属性来控制显示哪个图标。
 
 <div class="docs-preview-part">
-  <sk-icon name="collect" />
-  <sk-icon name="delete" />
-  <sk-icon name="avatar" />
-  <sk-icon name="more" />
-  <sk-icon name="await" />
-  <sk-icon name="cancel" />
-  <sk-icon name="leave-message" />
-  <sk-icon name="arrow-top" />
-  <sk-icon name="arrow-right" />
-  <sk-icon name="arrow-down" />
-  <sk-icon name="arrow-left" />
+  <sk-icon :size="20" name="collect" />
+  <sk-icon :size="20" name="delete" />
+  <sk-icon :size="20" name="avatar" />
+  <sk-icon :size="20" name="more" />
+  <sk-icon :size="20" name="await" />
+  <sk-icon :size="20" name="cancel" />
+  <sk-icon :size="20" name="leave-message" />
+  <sk-icon :size="20" name="arrow-top" />
+  <sk-icon :size="20" name="arrow-right" />
+  <sk-icon :size="20" name="arrow-down" />
+  <sk-icon :size="20" name="arrow-left" />
 </div>
 
 ```vue
