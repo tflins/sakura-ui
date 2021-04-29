@@ -1,21 +1,58 @@
 <template>
   <transition-group>
-    <div v-for="message in messageQueue" :key="message.id" class="sk-message">
+    <div
+      v-for="message in messageQueue"
+      :key="message.id"
+      :class="getInnerClass(message.type)"
+    >
+      <sk-icon :name="getIconName(message.type)" />
       <p class="sk-message-content" v-html="message.content"></p>
     </div>
   </transition-group>
 </template>
 
 <script lang="ts">
+import SkIcon from '@/icon'
 import { defineComponent } from 'vue'
+import { MessageIconType, MessageType } from '../index'
+
+const MessageIconMap: Record<MessageType, MessageIconType> = {
+  success: 'check',
+  error: 'cancel',
+  warning: 'warning',
+  info: 'warning'
+}
 
 export default defineComponent({
   name: 'SkMessage',
+
+  components: {
+    SkIcon
+  },
 
   props: {
     messageQueue: {
       type: Array,
       default: () => []
+    }
+  },
+
+  setup() {
+    const getInnerClass = (type: MessageType) => {
+      const MESSAGE_CLASS = 'sk-message'
+      return {
+        [MESSAGE_CLASS]: true,
+        [`${MESSAGE_CLASS}-${type}`]: true
+      }
+    }
+
+    const getIconName = (type: MessageType): MessageIconType => {
+      return MessageIconMap[type] || 'warning'
+    }
+
+    return {
+      getInnerClass,
+      getIconName
     }
   }
 })
@@ -26,12 +63,19 @@ export default defineComponent({
   padding: 12px 20px;
   margin-top: 16px;
   display: inline-flex;
+  align-items: center;
   max-width: 300px;
   background-color: $primary-color;
   border-radius: 8px;
-  // transition: all 0.3s;
+  transition: all 0.3s;
   transition: opacity 0.3s, transform 0.4s, top 0.4s;
+  box-shadow: 2px 1px 5px 2px rgba($black, 0.1);
   position: relative;
+
+  .sk-icon {
+    margin-right: 8px;
+    color: $white;
+  }
 
   &-wrapper {
     position: fixed;
@@ -48,6 +92,22 @@ export default defineComponent({
   &-content {
     margin: 0;
     color: $white;
+  }
+
+  &-success {
+    background-color: $success-color;
+  }
+
+  &-error {
+    background-color: $danger-color;
+  }
+
+  &-info {
+    background-color: $info-color;
+  }
+
+  &-warning {
+    background-color: $warning-color;
   }
 
   &.v-enter-from,

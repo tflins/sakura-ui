@@ -1,11 +1,16 @@
+import {
+  h,
+  App,
+  Teleport,
+  createApp,
+  ComponentPublicInstance
+} from 'vue'
+import { uuid } from '@/utils'
 import SkMessage from './src/index.vue'
-import { IMessageBaseOptions } from './src/type'
-import { App, createApp, ComponentPublicInstance, h, Teleport, reactive } from 'vue'
-export interface IHandleMessageFn {
-  (message: string, options?: IMessageBaseOptions): void
-}
 
-let num = 0
+export interface IHandleMessageFn {
+  (message: string, options?: Partial<IMessageOptions>): void
+}
 
 export interface IMessage {
   messageQueue: any[]
@@ -13,40 +18,59 @@ export interface IMessage {
   success: IHandleMessageFn
 }
 
-export interface IMessageOptions {}
+export enum MessageType {
+  SUCCESS = 'success',
+  ERROR = 'error',
+  INFO = 'info',
+  WARNING = 'warning'
+}
+
+export type MessageIconType = 'check' | 'cancel' | 'warning'
+
+const defaultMessageOptions = {
+  type: MessageType.INFO,
+  duration: 3000,
+  closeVisible: false
+}
+
+export interface IMessageOptions {
+  id: string
+  type: MessageType
+  content: string
+  duration: number
+  closeVisible: boolean
+}
 
 export class Message implements IMessage {
-  // TODO: messageQueue type
-  private _messageQueue: any[] = []
   private wrapper: ComponentPublicInstance<any>
 
-  // TODO: proxy -> this.wrapper.append | this.wrapper.remove
   get messageQueue() {
-    return this._messageQueue
+    return this.wrapper.messageQueue
   }
 
   set messageQueue(queue) {
-    this._messageQueue = queue
+    this.wrapper.messageQueue = queue
   }
 
   private createWrapper(): App {
-    if(this.wrapper) return this.wrapper
+    if (this.wrapper) return this.wrapper
 
     this.wrapper = createApp({
-      setup:() => {
-        const messageQueue = reactive([])
-        const append = (message: never) => {
-          messageQueue.push(message)
-        }
-        const remove = () => {
-          messageQueue.shift()
-        }
+      data() {
         return {
-          messageQueue,
-          append,
-          remove
+          messageQueue: []
         }
       },
+
+      methods: {
+        remove(message: any) {
+          this.messageQueue = this.messageQueue.filter((item: any) => item.id !== message.id)
+        },
+        append(message: any) {
+          this.messageQueue.push(message)
+        }
+      },
+
       render() {
         return h(Teleport, { to: 'body' }, [
           h('div', { class: 'sk-message-wrapper' }, [
@@ -58,22 +82,53 @@ export class Message implements IMessage {
     return this.wrapper
   }
 
-  private remove() {}
+  private appendMessage(message: Partial<IMessageOptions>) {
+    this.wrapper.append(message)
 
-  private removeAll() {}
-
-  success(content: string, options?: Partial<IMessageOptions>) {
-    num += 1
-    this.createWrapper()
-    this.wrapper.append({
-      content: content + num,
-      id: num
-    })
+    if(message.duration === 0) return
 
     setTimeout(() => {
-      this.wrapper.remove()
-    }, 2000)
+      this.remove(message)
+    }, message.duration)
+  }
+
+  private remove(message: Partial<IMessageOptions>) {
+    this.wrapper.remove(message)
+  }
+
+  private createMessage(content: string, options?: Partial<IMessageOptions>): IMessageOptions {
+    const message = Object.assign({}, defaultMessageOptions, {
+      content,
+      id: uuid()
+    }, options)
+
+    return message
+  }
+
+  success(content: string, options?: Partial<IMessageOptions>) {
+    const message = this.createMessage(content, { type: MessageType.SUCCESS, ...options })
+    this.createWrapper()
+    this.appendMessage(message)
+  }
+
+  error(content: string, options?: Partial<IMessageOptions>) {
+    const message = this.createMessage(content, { type: MessageType.ERROR, ...options })
+    this.createWrapper()
+    this.appendMessage(message)
+  }
+
+  info(content: string, options?: Partial<IMessageOptions>) {
+    const message = this.createMessage(content, { type: MessageType.INFO, ...options })
+    this.createWrapper()
+    this.appendMessage(message)
+  }
+
+  warning(content: string, options?: Partial<IMessageOptions>) {
+    const message = this.createMessage(content, { type: MessageType.WARNING, ...options })
+    this.createWrapper()
+    this.appendMessage(message)
   }
 }
 
 export default new Message()
+

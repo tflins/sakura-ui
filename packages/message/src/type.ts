@@ -1,9 +1,3 @@
-export type MessageType = 
-  | 'success'
-  | 'warning'
-  | 'info'
-  | 'error'
-
 export interface IHandleMessage {
   (message: string, options?: IMessageBaseOptions): void
 }
@@ -28,4 +22,11 @@ export interface IMessageBaseOptions {
   showClose: boolean
   offset: number
   textAlign: 'left' | 'center' | 'right'
+}
+
+export enum MessageType {
+  SUCCESS = 'success',
+  ERROR = 'error',
+  INFO = 'info',
+  WARNING = 'warning'
 }
