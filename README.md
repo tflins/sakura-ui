@@ -8,9 +8,9 @@ A Component Library for Vue3.0 + ts
 
 ![sakura](https://tflins.oss-cn-beijing.aliyuncs.com/sakura-ui/sakura-image.jpeg?versionId=CAEQGBiBgIDrgJiFzRciIDllMDE5ZmIzNjFkYjQxZWJiZGI4NmRlYjg0MzhjNmM3)
 
-跟多请前往官方文档 [SakuraUI](http://tflin.com/sakura-ui/)
+跟多请前往官方文档 ~~[SakuraUI](http://tflin.com/sakura-ui/) 域名最近在弄备案，暂时停止解析了~~
 
----
+---
 
 ## 安装
 
