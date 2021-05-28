@@ -10,6 +10,8 @@ A Component Library for Vue3.0 + ts
 
 跟多请前往官方文档 ~~[SakuraUI](http://tflin.com/sakura-ui/) 域名最近在弄备案，暂时停止解析了~~
 
+[临时地址](https://tflins.github.io/sakura-ui/)
+
 ---
 
 ## 安装
