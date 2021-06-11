@@ -10,7 +10,7 @@ features:
     details: sakura-ui 将提供 40+ 适用于不同场景的组件。
   - title: 易用
     details: 即刻阅读指南即可很方便的构建应用。
-  - title: Typescript + Vue3
+  - title: TypeScript + Vue3
     details: 提供完整的 Ts 类型支持，并使用更为灵活高效的 vue3 composition api。
 footer: MIT Licensed | Copyright © 2021-present tflin
 ---
