@@ -12,9 +12,13 @@
 </template>
 
 <script lang="ts">
+export default { name: 'SkMessage' }
+</script>
+
+<script setup lang="ts">
 import SkIcon from '@/icon'
-import { defineComponent } from 'vue'
-import { MessageIconType, MessageType } from '../index'
+import { defineProps, useContext, toRef  } from 'vue'
+import type { MessageIconType, MessageType, IMessageOptions } from '../index'
 
 const MessageIconMap: Record<MessageType, MessageIconType> = {
   success: 'check',
@@ -23,39 +27,21 @@ const MessageIconMap: Record<MessageType, MessageIconType> = {
   info: 'warning'
 }
 
-export default defineComponent({
-  name: 'SkMessage',
+const props = defineProps<{
+  messageQueue: IMessageOptions[]
+}>()
 
-  components: {
-    SkIcon
-  },
-
-  props: {
-    messageQueue: {
-      type: Array,
-      default: () => []
-    }
-  },
-
-  setup() {
-    const getInnerClass = (type: MessageType) => {
-      const MESSAGE_CLASS = 'sk-message'
-      return {
-        [MESSAGE_CLASS]: true,
-        [`${MESSAGE_CLASS}-${type}`]: true
-      }
-    }
-
-    const getIconName = (type: MessageType): MessageIconType => {
-      return MessageIconMap[type] || 'warning'
-    }
-
-    return {
-      getInnerClass,
-      getIconName
-    }
+const getInnerClass = (type: MessageType) => {
+  const MESSAGE_CLASS = 'sk-message'
+  return {
+    [MESSAGE_CLASS]: true,
+    [`${MESSAGE_CLASS}-${type}`]: true
   }
-})
+}
+
+const getIconName = (type: MessageType): MessageIconType => {
+  return MessageIconMap[type] || 'warning'
+}
 </script>
 
 <style lang="scss">
