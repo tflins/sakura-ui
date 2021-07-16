@@ -51,21 +51,21 @@
 通过 effect 属性，来设置按钮 `hover` 状态的特效
 
 <div class="docs-preview-part margin-bottom-12">
-  <sk-button effect="pulse">脉冲</sk-button>
-  <sk-button type="primary" effect="pulse">脉冲</sk-button>
-  <sk-button type="info" effect="pulse">脉冲</sk-button>
-  <sk-button type="success" effect="pulse">脉冲</sk-button>
-  <sk-button type="warning" effect="pulse">脉冲</sk-button>
-  <sk-button type="danger" effect="pulse">脉冲</sk-button>
+  <sk-button hover-effect="pulse">脉冲</sk-button>
+  <sk-button type="primary" hover-effect="pulse">脉冲</sk-button>
+  <sk-button type="info" hover-effect="pulse">脉冲</sk-button>
+  <sk-button type="success" hover-effect="pulse">脉冲</sk-button>
+  <sk-button type="warning" hover-effect="pulse">脉冲</sk-button>
+  <sk-button type="danger" hover-effect="pulse">脉冲</sk-button>
 </div>
 
 <div class="docs-preview-part">
-  <sk-button effect="flash">闪烁</sk-button>
-  <sk-button type="primary" effect="flash">闪烁</sk-button>
-  <sk-button type="info" effect="flash">闪烁</sk-button>
-  <sk-button type="success" effect="flash">闪烁</sk-button>
-  <sk-button type="warning" effect="flash">闪烁</sk-button>
-  <sk-button type="danger" effect="flash">闪烁</sk-button>
+  <sk-button hover-effect="flash">闪烁</sk-button>
+  <sk-button type="primary" hover-effect="flash">闪烁</sk-button>
+  <sk-button type="info" hover-effect="flash">闪烁</sk-button>
+  <sk-button type="success" hover-effect="flash">闪烁</sk-button>
+  <sk-button type="warning" hover-effect="flash">闪烁</sk-button>
+  <sk-button type="danger" hover-effect="flash">闪烁</sk-button>
 </div>
 
 ::: tip
