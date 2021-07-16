@@ -3,29 +3,25 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+export default {
+  name: 'SkIcon'
+}
+</script>
+
+<script setup lang="ts">
+import { defineComponent, computed, defineProps } from 'vue'
 import './icon-font/iconfont.css'
 
-export default defineComponent({
-  name: 'SkIcon',
+const props = defineProps<{
+  name: string,
+  size?: number
+}>()
+const { size } = props
 
-  props: {
-    name: String,
-    size: Number
-  },
-
-  setup(props) {
-    const { size } = props
-    const innerStyle = computed(() => {
-      if(!size) return
-      return {
-        fontSize: `${size}px`
-      }
-    })
-
-    return {
-      innerStyle
-    }
+const innerStyle = computed(() => {
+  if(!size) return
+  return {
+    fontSize: `${size}px`
   }
 })
 </script>
