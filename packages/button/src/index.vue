@@ -7,66 +7,63 @@
 </template>
 
 <script lang="ts">
-import { computed, PropType, defineComponent } from 'vue'
-import { ButtonType, ButtonEffect, ButtonSize } from './type'
+import { defineComponent, defineProps, computed, defineEmit } from 'vue'
+
+export default defineComponent({
+  name: 'SkButton'
+})
+</script>
+
+<script setup lang="ts">
+import type { PropType } from 'vue'
+import type { ButtonType, ButtonEffect, ButtonSize } from './type'
 import {
   isValidButtonType,
   isValidButtonSize,
   isValidButtonEffect
 } from './validators'
 
-export default defineComponent({
-  name: 'SkButton',
-
-  emits: ['click'],
-
-  props: {
-    type: {
-      type: String as PropType<ButtonType>,
-      default: () => 'default',
-      validator: isValidButtonType
-    },
-    disabled: {
-      type: Boolean,
-      default: () => false
-    },
-    size: {
-      type: String as PropType<ButtonSize>,
-      default: 'middle',
-      validator: isValidButtonSize
-    },
-    effect: {
-      type: String as PropType<ButtonEffect>,
-      default: 'default',
-      validator: isValidButtonEffect
-    }
+const props = defineProps({
+  type: {
+    type: String as PropType<ButtonType>,
+    default: 'default',
+    validator: isValidButtonType,
   },
-
-  setup(props, ctx) {
-    const { size, type, effect, disabled } = props
-
-    const innerClass = computed(() => {
-      const buttonClass = 'sk-button'
-      return {
-        [buttonClass]: true,
-        [type]: true,
-        [`${buttonClass}--effect__${effect}`]: true && !disabled,
-        [`${buttonClass}--disabled`]: disabled,
-        [`${buttonClass}--${size}`]: true
-      }
-    })
-
-    const handleClick = (event: Event) => {
-      if (disabled) return
-      ctx.emit('click', event)
-    }
-
-    return {
-      innerClass,
-      handleClick
-    }
+  hoverEffect: {
+    type: String as PropType<ButtonEffect>,
+    default: 'default',
+    validator: isValidButtonEffect
+  },
+  size: {
+    type: String as PropType<ButtonSize>,
+    default: 'middle',
+    validator: isValidButtonSize
+  },
+  disabled: {
+    type: Boolean,
+    default: () => false
   }
 })
+
+const { type, hoverEffect, disabled, size } = props
+
+const innerClass = computed(() => {
+  const buttonClass = 'sk-button'
+  return {
+    [buttonClass]: true,
+    [type]: true,
+    [`${buttonClass}--effect__${hoverEffect}`]: true && !disabled,
+    [`${buttonClass}--disabled`]: disabled,
+    [`${buttonClass}--${size}`]: true
+  }
+})
+
+const emit = defineEmit(['click']);
+
+const handleClick = (event: Event) => {
+  if (disabled) return
+  emit('click', event)
+}
 </script>
 
 <style lang="scss" scoped>
