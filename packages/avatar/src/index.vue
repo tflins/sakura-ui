@@ -9,24 +9,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed } from 'vue'
-import SkIcon from '@/icon'
+export default {
+  name: 'SkAvatar'
+}
+</script>
 
-export type AvatarSize = 'small' | 'middle' | 'large'
-export type AvatarShape = 'circle' | 'square'
+<script setup lang="ts">
+import { defineComponent, computed, defineProps, useSlots } from 'vue'
+import SkIcon from '@/icon'
+import type { PropType } from 'vue'
+import type { AvatarSize, AvatarShape } from './type'
 
 const AVATAR_CLASS_NAME = 'sk-avatar'
 const MIN_SIZE = 20
 
-export default defineComponent({
-  name: 'SkAvatar',
-
-  components: {
-    SkIcon
-  },
-
-  props: {
-    size: {
+const props = defineProps({
+  size: {
       type: [String, Number] as PropType<AvatarSize | number>,
       default: 'middle',
       validator: (size: AvatarSize | number) => {
@@ -40,41 +38,34 @@ export default defineComponent({
     iconName: String,
     src: String,
     alt: String
-  },
+})
 
-  setup(props, { slots }) {
-    const { size, shape } = props
-    const defaultSlot = slots.default ? slots.default() : []
-    const avatarText =
-      defaultSlot.length && defaultSlot[0].children
-        ? (defaultSlot[0].children as string).slice(0, 1)
-        : ''
+const { size, shape } = props
+const slots = useSlots()
 
-    const isNumberSize = typeof size === 'number'
+const defaultSlot = slots.default ? slots.default() : []
+const avatarText =
+  defaultSlot.length && defaultSlot[0].children
+    ? (defaultSlot[0].children as string).slice(0, 1)
+    : ''
 
-    const innerStyle = computed(() => {
-      if(!isNumberSize) return null
-      const _size = Math.max(MIN_SIZE, size as number)
-      return {
-        width: `${_size}px`,
-        height: `${_size}px`,
-        fontSize: `${_size as number * 0.5}px`
-      }
-    })
+const isNumberSize = typeof size === 'number'
 
-    const innerClass = computed(() => {
-      return {
-        [AVATAR_CLASS_NAME]: true,
-        [`${AVATAR_CLASS_NAME}--shape__${shape}`]: true,
-        [`${AVATAR_CLASS_NAME}--size__${size}`]: !isNumberSize
-      }
-    })
+const innerStyle = computed(() => {
+  if(!isNumberSize) return {}
+  const _size = Math.max(MIN_SIZE, size as number)
+  return {
+    width: `${_size}px`,
+    height: `${_size}px`,
+    fontSize: `${_size as number * 0.5}px`
+  }
+})
 
-    return {
-      innerClass,
-      avatarText,
-      innerStyle
-    }
+const innerClass = computed(() => {
+  return {
+    [AVATAR_CLASS_NAME]: true,
+    [`${AVATAR_CLASS_NAME}--shape__${shape}`]: true,
+    [`${AVATAR_CLASS_NAME}--size__${size}`]: !isNumberSize
   }
 })
 </script>
