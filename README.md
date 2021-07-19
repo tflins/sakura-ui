@@ -12,8 +12,6 @@ A Component Library for Vue3.0 + ts
 
 跟多请前往官方文档 [SakuraUI](http://tflin.com/sakura-ui/)
 
----
-
 ## 安装
 
 ```sh
