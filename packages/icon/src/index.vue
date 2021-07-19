@@ -9,19 +9,23 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { defineComponent, computed, defineProps } from 'vue'
+import { computed, defineProps } from 'vue'
 import './icon-font/iconfont.css'
+
+const defaultColor = '#333'
 
 const props = defineProps<{
   name: string,
-  size?: number
+  size?: number,
+  color?: string
 }>()
-const { size } = props
+const { size, color } = props
 
 const innerStyle = computed(() => {
   if(!size) return
   return {
-    fontSize: `${size}px`
+    fontSize: `${size}px`,
+    color: color || defaultColor
   }
 })
 </script>
