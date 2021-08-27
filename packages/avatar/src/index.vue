@@ -15,7 +15,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { defineComponent, computed, defineProps, useSlots } from 'vue'
+import { computed, defineProps, useSlots } from 'vue'
 import SkIcon from '@/icon'
 import type { PropType } from 'vue'
 import type { AvatarSize, AvatarShape } from './type'

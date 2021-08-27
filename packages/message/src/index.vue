@@ -17,7 +17,7 @@ export default { name: 'SkMessage' }
 
 <script setup lang="ts">
 import SkIcon from '@/icon'
-import { defineProps, useContext, toRef  } from 'vue'
+import { defineProps } from 'vue'
 import type { MessageIconType, MessageType, IMessageOptions } from '../index'
 
 const MessageIconMap: Record<MessageType, MessageIconType> = {

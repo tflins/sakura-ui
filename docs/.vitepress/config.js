@@ -47,6 +47,10 @@ module.exports = {
           {
             "text": "Message 消息",
             "link": "/component/message"
+          },
+          {
+            "text": "Input 输入框",
+            "link": "/component/input"
           }
         ]
       }]
