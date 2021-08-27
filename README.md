@@ -18,6 +18,12 @@ A Component Library for Vue3.0 + ts
 npm i sakura3 -S
 ```
 
+## 开发
+
+```sh
+npm run dev
+```
+
 ## todo
 
 - [ ] 独立的主题包 `@xxx/theme`
