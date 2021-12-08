@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, defineProps, computed, defineEmit } from 'vue'
+import { defineComponent, computed } from 'vue'
 
 export default defineComponent({
   name: 'SkButton'
@@ -58,7 +58,7 @@ const innerClass = computed(() => {
   }
 })
 
-const emit = defineEmit(['click']);
+const emit = defineEmits(['click']);
 
 const handleClick = (event: Event) => {
   if (disabled) return
