@@ -15,7 +15,7 @@ const { site, theme, localePath } = useData()
       :src="withBase(theme.logo)"
       alt="Logo"
     />
-    {{ site.title }}
+    <!-- {{ site.title }} -->
   </a>
 </template>
 
@@ -32,7 +32,7 @@ const { site, theme, localePath } = useData()
 
 .logo {
   margin-right: 0.75rem;
-  height: 1.3rem;
+  height: 2.9rem;
   vertical-align: bottom;
 }
 </style>
