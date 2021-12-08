@@ -15,35 +15,29 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import type { PropType } from 'vue'
 import type { ButtonType, ButtonEffect, ButtonSize } from './type'
-import {
-  isValidButtonType,
-  isValidButtonSize,
-  isValidButtonEffect
-} from './validators'
 
-const props = defineProps({
-  type: {
-    type: String as PropType<ButtonType>,
-    default: 'default',
-    validator: isValidButtonType,
-  },
-  hoverEffect: {
-    type: String as PropType<ButtonEffect>,
-    default: 'default',
-    validator: isValidButtonEffect
-  },
-  size: {
-    type: String as PropType<ButtonSize>,
-    default: 'middle',
-    validator: isValidButtonSize
-  },
-  disabled: {
-    type: Boolean,
-    default: () => false
-  }
-})
+export type Writeable<T> = { -readonly [P in keyof T]: T[P] };
+
+export type Full<T> = {
+  [P in keyof T]-?: T[P];
+}
+
+export interface IProps {
+  type?: ButtonType,
+  hoverEffect?: ButtonEffect,
+  size?: ButtonSize,
+  disabled?: boolean
+}
+
+const defaultProps: Full<IProps> = {
+  type: 'default',
+  hoverEffect: 'default',
+  size: 'middle',
+  disabled: false
+}
+
+const props = withDefaults(defineProps<IProps>(), defaultProps)
 
 const { type, hoverEffect, disabled, size } = props
 

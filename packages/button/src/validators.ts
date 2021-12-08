@@ -1,3 +1,6 @@
+/**
+ * 使用 typescript 类型来声明 props (defineProps<Type>)，应该不需要验证器了，暂时保留着
+ */
 import { ButtonType, ButtonSize, ButtonEffect } from './type'
 
 export const isValidButtonType = (type: ButtonType) => {
