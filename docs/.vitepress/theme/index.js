@@ -1,6 +1,6 @@
 // .vitepress/theme/index.js
-import SakuraUiSite from './sakura-ui-site'
-import { IconList, MessageDemo } from './sakura-ui-site/components/docs-compoents'
+import SakuraUiSite from '../sakura-ui-site'
+import { IconList, MessageDemo } from '../examples'
 import { Button, Avatar, Icon, Input } from '../../../packages/main'
 
 import './index.scss'
