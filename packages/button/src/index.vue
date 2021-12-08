@@ -17,12 +17,11 @@ export default defineComponent({
 <script setup lang="ts">
 import type { ButtonType, ButtonEffect, ButtonSize } from './type'
 
-export type Writeable<T> = { -readonly [P in keyof T]: T[P] };
-
-export type Full<T> = {
-  [P in keyof T]-?: T[P];
-}
-
+/**
+ * TODO: 迁移至外部统一管理，待 vue 更新
+ * @see: https://github.com/vuejs/rfcs/blob/master/active-rfcs/0040-script-setup.md#type-only-propsemit-declarations
+ * @see: https://github.com/vuejs/vue-next/issues/4294
+ */
 export interface IProps {
   type?: ButtonType,
   hoverEffect?: ButtonEffect,
@@ -30,14 +29,12 @@ export interface IProps {
   disabled?: boolean
 }
 
-const defaultProps: Full<IProps> = {
+const props = withDefaults(defineProps<IProps>(), {
   type: 'default',
   hoverEffect: 'default',
   size: 'middle',
   disabled: false
-}
-
-const props = withDefaults(defineProps<IProps>(), defaultProps)
+})
 
 const { type, hoverEffect, disabled, size } = props
 
