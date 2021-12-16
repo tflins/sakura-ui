@@ -4,6 +4,8 @@
 
 ## 基础用法
 
+最基本的用法 input 组件
+
 <div class="docs-preview-part">
   <sk-input />
 </div>
