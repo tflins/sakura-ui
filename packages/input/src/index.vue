@@ -31,7 +31,7 @@ export interface IProps {
   minlength?: number
   placeholder?: string
   size?: 'small' | 'middle' | 'large'
-  modelValue: string | number
+  modelValue?: string | number
   disabled?: boolean
 }
 
