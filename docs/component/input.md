@@ -50,3 +50,23 @@ const value = ref('基本使用')
 ```vue
 <sk-input model-value="数据不可变" readonly />
 ```
+
+## 输入框的类型
+
+在 sakura ui 中，提供了 4 中不同类型的输入框。设置不同的 type 属性，使用不同的输入框。
+
+<div class="docs-preview-part">
+  <sk-input placeholder="这是一个普通的文本输入框" />
+  <sk-input type="password" placeholder="请输入密码" />
+  <sk-input type="number" placeholder="数字输入框" />
+</div>
+
+```vue
+<sk-input type="text" placeholder="这是一个普通的文本输入框" />
+<sk-input type="password" placeholder="请输入密码" />
+<sk-input type="number" placeholder="数字输入框" />
+```
+
+<div class="docs-preview-part">
+  <sk-input type="textarea" placeholder="这是一个普通的文本输入框" />
+</div>

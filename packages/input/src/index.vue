@@ -5,14 +5,27 @@
     :style="innerStyle"
   >
     <input
+      v-if="type !== 'textarea'"
       v-model="modelValue"
       class="sk-input-inner"
       :type="type"
       :disabled="disabled"
       :placeholder="placeholder"
       :readonly="readonly"
+      :autocomplete="autocomplete"
       @change="handleChange"
     />
+
+    <template v-else>
+      <textarea
+        ref="textareaRef"
+        class="sk-input-textarea-inner"
+        name=""
+        id=""
+        cols="30"
+        rows="10"
+      ></textarea>
+    </template>
   </div>
 </template>
 
@@ -33,12 +46,14 @@ export interface IProps {
   size?: 'small' | 'middle' | 'large'
   modelValue?: string | number
   disabled?: boolean
+  autocomplete?: 'off' | 'on'
 }
 
 const props = withDefaults(defineProps<IProps>(), {
   type: 'text',
   readonly: false,
-  size: 'middle'
+  size: 'middle',
+  autocomplete: 'off'
 })
 
 const innerClass = computed(() => {
@@ -86,7 +101,6 @@ function handleChange(event: Event) {
   }
 
   &:not(.is-disabled) &-inner {
-
     &:hover {
       border-color: $primary-color-secondary;
       opacity: 0.8;
