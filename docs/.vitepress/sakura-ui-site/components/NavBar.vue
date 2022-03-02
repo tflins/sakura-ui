@@ -6,6 +6,7 @@ import ToggleSideBarButton from './ToggleSideBarButton.vue'
 
 <template>
   <header class="nav-bar">
+    <meta name="referrer" content="no-referrer" />
     <ToggleSideBarButton @toggle="$emit('toggle')" />
 
     <NavBarTitle />
