@@ -10,7 +10,7 @@ A Component Library for Vue3.0 + ts
 
 在代码风格上，习惯是用上最新的 `setup-script` 语法。
 
-跟多请前往官方文档 [SakuraUI](http://tflin.com/sakura-ui/)
+跟多请前往官方文档, ~~sakuraui.com 备案中~~ [SakuraUI](http://tflin.com/sakura-ui/)
 
 ## 安装
 
